@@ -28,9 +28,6 @@ public class Competence {
     @NotNull
     private Catalog catalog;
 
-    @OneToOne
-    @NotNull
-    private ValueDomain valueDomain;
 
     public Long getId() {
         return id;
@@ -73,11 +70,4 @@ public class Competence {
         this.catalog = catalog;
     }
 
-    public ValueDomain getValueDomain() {
-        return valueDomain;
-    }
-
-    public void setValueDomain(ValueDomain valueDomain) {
-        this.valueDomain = valueDomain;
-    }
 }
