@@ -9,6 +9,7 @@
 - *Clonez* le projet dans votre espace de travail en utilisant la commande *git clone https://..."*
 - Créez la branche *develop* dans votre repository local et *pushez* la branche sur Github à l'aide de la commande suivante :
 *"git push -u origin develop"* . 
+- Ouvrez le projet avec IntelliJ.
 
 ### 2. Premiers pas avec Maven
 
