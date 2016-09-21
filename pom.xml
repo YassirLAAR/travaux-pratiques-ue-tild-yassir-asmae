@@ -53,11 +53,23 @@
 			<scope>test</scope>
 		</dependency>
 
+        <dependency>
+            <groupId>org.spockframework</groupId>
+            <artifactId>spock-spring</artifactId>
+            <version>1.0-groovy-2.4</version>
+        </dependency>
+
 		<dependency>
-			<groupId>org.spockframework</groupId>
-			<artifactId>spock-spring</artifactId>
-			<version>1.0-groovy-2.4</version>
+			<groupId>cglib</groupId>
+			<artifactId>cglib-nodep</artifactId>
+			<version>3.2.4</version>
 		</dependency>
+
+        <dependency>
+            <groupId>org.objenesis</groupId>
+            <artifactId>objenesis</artifactId>
+            <version>2.4</version>
+        </dependency>
 	</dependencies>
 
 	<build>
@@ -94,5 +106,13 @@
 			</plugin>
 		</plugins>
 	</reporting>
+
+    <repositories>
+        <repository>
+            <id>gemfire-repository</id>
+            <name>Gemfire Repository</name>
+            <url>http://dist.gemstone.com/maven/release</url>
+        </repository>
+    </repositories>
 
 </project>

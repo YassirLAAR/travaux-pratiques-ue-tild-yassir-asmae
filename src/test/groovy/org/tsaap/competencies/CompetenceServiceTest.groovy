@@ -1,46 +1,33 @@
 package org.tsaap.competencies
 
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.test.context.ContextConfiguration
+import org.tsaap.competencies.repositories.CatalogRepository
 import spock.lang.Specification
 
-import javax.validation.ConstraintViolationException
 
 /**
  * Test competence service
  */
-@ContextConfiguration
-@SpringBootTest
 class CompetenceServiceTest extends Specification {
 
-    @Autowired
+
     private CompetenceService competenceService
+    private CatalogRepository catalogRepository
+
+    void setup() {
+        catalogRepository = Mock(CatalogRepository)
+        competenceService = new CompetenceService(catalogRepository)
+    }
 
     def "test save a valid catalog"() {
-        given: "a valid catalog"
-        Catalog catalog = new Catalog();
-        catalog.setName("Catalog 1");
-        catalog.setDescription("Description 1");
+        given: "a  catalog"
+        def catalog = Mock(Catalog)
 
         when: "the catalog is saved"
         competenceService.saveCatalog(catalog);
 
-        then: "the catalog has an id"
-        catalog.getId() != null
+        then: "catalogRepositpory save is triggered"
+        1 * catalogRepository.save(catalog)
     }
 
-    def "test save a non valid catalog"() {
-        given: "a non valid catalog"
-        Catalog catalog = new Catalog();
-        catalog.setName("C1");
-        catalog.setDescription("Description 1");
-
-        when: "the catalog is saved"
-        competenceService.saveCatalog(catalog);
-
-        then: "the a validation exception is thrown"
-        thrown ConstraintViolationException
-    }
 
 }
