@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 /**
  * Class representing a competence category
@@ -46,5 +47,6 @@ public class Category {
     public void setDescription(String description) {
         this.description = description;
     }
+
 
 }

@@ -28,6 +28,8 @@ class CompetenceServiceITest extends Specification {
 
         then: "the catalog has an id"
         catalog.getId() != null
+        catalog.getName() == "Catalog 1"
+        catalog.getDescription() == "Description 1"
     }
 
     def "test save a non valid catalog"() {

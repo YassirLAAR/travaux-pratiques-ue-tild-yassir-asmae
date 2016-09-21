@@ -109,9 +109,8 @@
 
     <repositories>
         <repository>
-            <id>gemfire-repository</id>
-            <name>Gemfire Repository</name>
-            <url>http://dist.gemstone.com/maven/release</url>
+            <id>spring-gemstone-releases</id>
+            <url>http://repo.spring.io/gemstone-release-cache/</url>
         </repository>
     </repositories>
 
