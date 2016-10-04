@@ -1,6 +1,8 @@
 package org.tsaap.competencies
 
 import org.tsaap.competencies.repositories.CatalogRepository
+import org.tsaap.competencies.repositories.CategoryRepository
+import org.tsaap.competencies.repositories.CompetenceRepository
 import spock.lang.Specification
 
 
@@ -12,10 +14,14 @@ class CompetenceServiceTest extends Specification {
 
     private CompetenceService competenceService
     private CatalogRepository catalogRepository
+    private CategoryRepository categoryRepository
 
     void setup() {
         catalogRepository = Mock(CatalogRepository)
-        competenceService = new CompetenceService(catalogRepository)
+        categoryRepository = Mock(CategoryRepository)
+        competenceRepository = Mock(CompetenceRepository)
+        competenceService = new CompetenceService(catalogRepository, categoryRepository, competenceRepository)
+
     }
 
     def "test save a valid catalog"() {
@@ -27,6 +33,27 @@ class CompetenceServiceTest extends Specification {
 
         then: "catalogRepositpory save is triggered"
         1 * catalogRepository.save(catalog)
+    }
+    def "test save a valid category"() {
+        given: "a  category"
+        def category = Mock(Category)
+
+        when: "the category is saved"
+        competenceService.saveCategory(category);
+
+        then: "categoryRepositpory save is triggered"
+        1 * categoryRepository.save(category)
+    }
+
+    def "test save a valid competence"() {
+        given: "a  competence"
+        def competence = Mock(Competence)
+
+        when: "the competence is saved"
+        competenceService.saveCompetence(competence);
+
+        then: "categoryRepositpory save is triggered"
+        1 * competenceRepository.save(competence)
     }
 
 
