@@ -45,4 +45,86 @@ class CompetenceServiceITest extends Specification {
         thrown ConstraintViolationException
     }
 
+    def "test save a valid category"() {
+        given: "a valid category"
+        Category category = new Category();
+        category.setId(15);
+        category.setName("Category 1");
+        category.setDescription("Description 1");
+
+        when: "the category is saved"
+        competenceService.saveCategory(category);
+
+        then: "the category has an id"
+        category.getId() == 15
+        category.getName() == "Category 1"
+        category.getDescription() == "Description 1"
+    }
+
+    def "test save a non valid category"() {
+        given: "a non valid category"
+        Category category = new Category();
+        category.setName("C1");
+        category.setDescription("Description 1");
+
+        when: "the category is saved"
+        competenceService.saveCategory(category);
+
+        then: "the a validation exception is thrown"
+        thrown ConstraintViolationException
+    }
+
+    def "test save a valid competence"() {
+        given: "a valid competence"
+        Catalog catalog = new Catalog();
+        catalog.setName("Catalog 2");
+        catalog.setDescription("Description 2");
+
+        Category category = new Category();
+        category.setId(17);
+        category.setName("Category 2");
+        category.setDescription("Description 2");
+
+        Competence competence = new Competence();
+        competence.setId(1);
+        competence.setName("Competence 1");
+        competence.setDescription("Description 1");
+        competence.setCatalog(catalog);
+        competence.setCategory(category);
+
+        when: "the competence is saved"
+        competenceService.saveCompetence(competence);
+
+        then: "the competence has an id"
+        competence.getId() == 1
+        competence.getName() == "Competence 1"
+        competence.getDescription() == "Description 1"
+        competence.getCatalog().equals(catalog) == true
+        competence.getCategory().equals(category) == true
+
+    }
+
+    def "test save a non valid competence"() {
+        given: "a non valid competence"
+        Catalog catalog = new Catalog();
+        catalog.setName("Catalog 2");
+        catalog.setDescription("Description 2");
+
+        Category category = new Category();
+        category.setId(17);
+        category.setName("Category 2");
+        category.setDescription("Description 2");
+
+        Competence competence = new Competence();
+        competence.setName("C1");
+        competence.setDescription("Description 1");
+        competence.setCatalog(catalog);
+        competence.setCategory(category);
+
+        when: "the competence is saved"
+        competenceService.saveCompetence(competence);
+
+        then: "the a validation exception is thrown"
+        thrown ConstraintViolationException
+    }
 }
