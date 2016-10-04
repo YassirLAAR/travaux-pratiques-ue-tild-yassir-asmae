@@ -27,6 +27,8 @@ public class CompetenceService {
         this.competenceRepository = competenceRepository;
     }
 
+    public CompetenceService(){}
+
     public void setCatalogRepository(CatalogRepository catalogRepository) {
         this.catalogRepository = catalogRepository;
     }
