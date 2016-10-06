@@ -15,6 +15,7 @@ class CompetenceServiceTest extends Specification {
     private CompetenceService competenceService
     private CatalogRepository catalogRepository
     private CategoryRepository categoryRepository
+    private CompetenceRepository competenceRepository
 
     void setup() {
         catalogRepository = Mock(CatalogRepository)
