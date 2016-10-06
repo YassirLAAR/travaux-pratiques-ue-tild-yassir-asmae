@@ -12,7 +12,7 @@ import java.util.List;
  * Class representing a competence catalog
  */
 @Entity
-public class Catalog {
+public class  Catalog {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
