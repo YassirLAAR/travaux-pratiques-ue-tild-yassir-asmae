@@ -78,7 +78,14 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>org.eluder.coveralls</groupId>
+				<artifactId>coveralls-maven-plugin</artifactId>
+				<version>4.3.0</version>
+
+			</plugin>
             <!-- Mandatory plugins for using Spock -->
+
             <plugin>
                 <!-- The gmavenplus plugin is used to compile Groovy code. To learn more about this plugin,
                 visit https://github.com/groovy/GMavenPlus/wiki -->
