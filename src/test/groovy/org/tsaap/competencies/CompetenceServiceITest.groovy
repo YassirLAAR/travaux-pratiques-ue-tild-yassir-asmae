@@ -164,4 +164,39 @@ class CompetenceServiceITest extends Specification {
         then: "the a validation exception is thrown"
         thrown ConstraintViolationException
     }
+
+
+    def "test findAll the competences"() {
+        given: "save a competence"
+
+        List <Competence> list = null
+
+        CompetenceService competenceService = new CompetenceService(catalogRepository,categoryRepository,competenceRepository);
+
+
+        when: "the competences are found"
+
+        list = competenceService.findAllCompetences();
+
+        then: "the list is not empty"
+        list != null
+
+    }
+
+    def "test not findAll the competences"() {
+        given: "save a competence"
+
+        List <Competence> list = null
+
+        CompetenceService competenceService = new CompetenceService(catalogRepository,categoryRepository,competenceRepository);
+
+
+        when: "the competences are found"
+
+        list = competenceService.findAllCompetences();
+
+        then: "the list is not empty"
+        list == null
+
+    }
 }

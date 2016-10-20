@@ -6,6 +6,8 @@ import org.tsaap.competencies.repositories.CatalogRepository;
 import org.tsaap.competencies.repositories.CategoryRepository;
 import org.tsaap.competencies.repositories.CompetenceRepository;
 
+import java.util.List;
+
 /**
  * Service to manage competencies
  */
@@ -67,6 +69,10 @@ public class CompetenceService {
         competence2.setCatalog(catalog);
         competence2.setCategory(category);
         saveCompetence(competence2);
+    }
+
+    public List <Competence> findAllCompetences(){
+        return (List<Competence>) competenceRepository.findAll();
     }
 
     /**
