@@ -25,9 +25,11 @@ public class CompetenceService {
         this.catalogRepository = catalogRepository ;
         this.categoryRepository = categoryRepository;
         this.competenceRepository = competenceRepository;
+        init();
     }
 
-    public CompetenceService(){}
+    public CompetenceService(){
+    }
 
     public void setCatalogRepository(CatalogRepository catalogRepository) {
         this.catalogRepository = catalogRepository;
@@ -39,6 +41,32 @@ public class CompetenceService {
 
     public void setCompetenceRepository(CompetenceRepository competenceRepository) {
         this.competenceRepository = competenceRepository;
+    }
+
+    public void init (){
+        Catalog  catalog = new Catalog();
+        catalog.setDescription("Desc1");
+        catalog.setName("cat1");
+        catalogRepository.save(catalog);
+
+        Category category=new Category();
+        category.setDescription("Desc2");
+        category.setName("categ1");
+        categoryRepository.save(category);
+
+        Competence competence = new Competence();
+        competence.setDescription("Desc3");
+        competence.setName("compt");
+        competence.setCatalog(catalog);
+        competence.setCategory(category);
+        competenceRepository.save(competence);
+
+        Competence competence2 = new Competence();
+        competence2.setDescription("Desc4");
+        competence2.setName("compt2");
+        competence2.setCatalog(catalog);
+        competence2.setCategory(category);
+        saveCompetence(competence2);
     }
 
     /**
