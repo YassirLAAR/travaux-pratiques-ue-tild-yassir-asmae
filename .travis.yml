@@ -7,3 +7,6 @@ script:
   
 after_success:
       - mvn clean cobertura:cobertura org.eluder.coveralls:coveralls-maven-plugin:report
+      
+deploy:
+    provider: heroku
