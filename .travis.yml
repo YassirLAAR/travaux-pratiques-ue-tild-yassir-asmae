@@ -10,3 +10,5 @@ after_success:
       
 deploy:
     provider: heroku
+     api_key: 17992561-ef8e-4463-9d5e-1f9fab308153
+     on : develop
