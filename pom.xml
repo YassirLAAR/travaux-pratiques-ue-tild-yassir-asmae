@@ -8,7 +8,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>AssessedCompetencies</name>
+	<name>travaux-pratiques-ue-tild-yassir-asmae</name>
 	<description>Management of assessed competencies</description>
 
 	<parent>
