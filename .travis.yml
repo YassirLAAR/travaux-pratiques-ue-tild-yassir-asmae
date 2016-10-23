@@ -7,8 +7,4 @@ script:
   
 after_success:
       - mvn clean cobertura:cobertura org.eluder.coveralls:coveralls-maven-plugin:report
-      
-deploy:
-  provider: heroku
-  api_key: c386c51c-57c0-4dea-9b60-5aa6e1cbef3e
-  on: develop
+      - if [[ "$TRAVIS_BRANCH" = "develop" ]]; then git push -f https://:$HEROKU_TOKEN@git.heroku.com/gitproject.git develop; fi;
