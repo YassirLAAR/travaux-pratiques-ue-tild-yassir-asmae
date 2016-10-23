@@ -10,4 +10,3 @@ after_success:
       
 deploy:
     provider: heroku
-
