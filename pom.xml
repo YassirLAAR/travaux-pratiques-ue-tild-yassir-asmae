@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.example</groupId>
-	<artifactId>travaux-pratiques-ue-tild-yassir-asmae</artifactId>
+	<artifactId>assessedcompetencies</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>travaux-pratiques-ue-tild-yassir-asmae</name>
+	<name>AssessedCompetencies/name>
 	<description>Management of assessed competencies</description>
 
 	<parent>
