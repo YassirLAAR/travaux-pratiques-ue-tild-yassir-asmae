@@ -196,7 +196,7 @@ class CompetenceServiceITest extends Specification {
         list = competenceService.findAllCompetences();
 
         then: "the a validation exception is thrown"
-        thrown ConstraintViolationException
+        thrown NullPointerException
 
     }
 }
