@@ -30,8 +30,6 @@ public class CompetenceService {
         init();
     }
 
-    public CompetenceService(){
-    }
 
     public void setCatalogRepository(CatalogRepository catalogRepository) {
         this.catalogRepository = catalogRepository;

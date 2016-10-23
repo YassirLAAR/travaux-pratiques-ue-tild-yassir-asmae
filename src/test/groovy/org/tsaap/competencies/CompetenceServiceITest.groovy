@@ -23,11 +23,13 @@ class CompetenceServiceITest extends Specification {
     private CategoryRepository categoryRepository
     @Autowired
     private CompetenceRepository competenceRepository
+    @Autowired
+    private CompetenceController competenceController
 
 
     def "test save a valid catalog"() {
         given: "a valid catalog"
-        CompetenceService competenceService = new CompetenceService();
+        CompetenceService competenceService = new CompetenceService(catalogRepository,categoryRepository,competenceRepository);
         Catalog catalog = new Catalog();
         catalog.setName("Catalog 1");
         catalog.setDescription("Description 1");
@@ -44,7 +46,7 @@ class CompetenceServiceITest extends Specification {
 
     def "test save a non valid catalog"() {
         given: "a non valid catalog"
-        CompetenceService competenceService = new CompetenceService();
+        CompetenceService competenceService = new CompetenceService(catalogRepository,categoryRepository,competenceRepository);
         Catalog catalog = new Catalog();
         catalog.setName("C1");
         catalog.setDescription("Description 1");
@@ -59,7 +61,7 @@ class CompetenceServiceITest extends Specification {
 
     def "test save a valid category"() {
         given: "a valid category"
-        CompetenceService competenceService = new CompetenceService();
+        CompetenceService competenceService = new CompetenceService(catalogRepository,categoryRepository,competenceRepository);
         Category category = new Category();
         category.setId(15);
         category.setName("Category 1");
@@ -77,7 +79,7 @@ class CompetenceServiceITest extends Specification {
 
     def "test save a non valid category"() {
         given: "a non valid category"
-        CompetenceService competenceService = new CompetenceService();
+        CompetenceService competenceService = new CompetenceService(catalogRepository,categoryRepository,competenceRepository);
         Category category = new Category();
         category.setName("C1");
         category.setDescription("Description 1");
@@ -92,7 +94,7 @@ class CompetenceServiceITest extends Specification {
 
     def "test save a valid competence"() {
         given: "a valid competence"
-        CompetenceService competenceService = new CompetenceService();
+        CompetenceService competenceService = new CompetenceService(catalogRepository,categoryRepository,competenceRepository);
         Catalog catalog = new Catalog();
         catalog.setName("Catalog 2");
         catalog.setDescription("Description 2");
@@ -135,7 +137,7 @@ class CompetenceServiceITest extends Specification {
 
     def "test save a non valid competence"() {
         given: "a non valid competence"
-        CompetenceService competenceService = new CompetenceService();
+        CompetenceService competenceService = new CompetenceService(catalogRepository,categoryRepository,competenceRepository);
         Catalog catalog = new Catalog();
         catalog.setName("Catalog 2");
         catalog.setDescription("Description 2");
@@ -171,12 +173,9 @@ class CompetenceServiceITest extends Specification {
 
         List <Competence> list = null
 
-        CompetenceService competenceService = new CompetenceService(catalogRepository,categoryRepository,competenceRepository);
-
-
         when: "the competences are found"
 
-        list = competenceService.findAllCompetences();
+        list = competenceController.allCompetences();
 
         then: "the list is not empty"
         list != null
@@ -188,8 +187,8 @@ class CompetenceServiceITest extends Specification {
 
         List <Competence> list = null
 
-        CompetenceService competenceService = new CompetenceService();
-
+        CompetenceService competenceService = new CompetenceService(catalogRepository,categoryRepository,competenceRepository);
+        competenceService.setCompetenceRepository(null);
 
         when: "the competences are found"
 
