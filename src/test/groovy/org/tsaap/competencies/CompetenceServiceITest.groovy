@@ -188,7 +188,7 @@ class CompetenceServiceITest extends Specification {
 
         List <Competence> list = null
 
-        CompetenceService competenceService = new CompetenceService(catalogRepository,categoryRepository,competenceRepository);
+        CompetenceService competenceService = new CompetenceService();
 
 
         when: "the competences are found"
